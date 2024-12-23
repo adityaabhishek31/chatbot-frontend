@@ -1,6 +1,5 @@
 /* ChatBot.module.css */
 .container {
-    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
