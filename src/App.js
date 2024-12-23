@@ -1,13 +1,19 @@
 import React from "react";
-import ChatBot from "./components/ChatBot";
+import OserDemoLanding from "./pages/OserDemoLanding.js";
+import { Route, Routes } from 'react-router-dom';
+import BusinessChatBot from "./pages/BusinessChatBot.js";
+import UserChatBot from "./pages/UserChatBot.js";
 
 const App = () => {
   return (
-    <div>
-      <h1 style={{ textAlign: "center" }}>EV Assistant Chatbot</h1>
-      <ChatBot />
-    </div>
+      <div className="App">
+        <Routes>
+          <Route element={<OserDemoLanding />} path="/" exact />
+          <Route element={<BusinessChatBot />} path="/electrify-ev-chatbot" />
+          <Route element={<UserChatBot />} path="/user-ev-assist-chatbot" />
+        </Routes>
+      </div>
   );
-};
+}
 
 export default App;

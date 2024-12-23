@@ -3,9 +3,9 @@ import axios from "axios";
 import { FaPaperPlane } from "react-icons/fa";
 import { RiRobot2Line } from "react-icons/ri";
 import { TbRobotFace } from "react-icons/tb";
-import styles from "./ChatBot.module.css";
+import styles from "./UserChatBot.module.css";
 
-const ChatBot = () => {
+const UserChatBot = () => {
   const [messages, setMessages] = useState([
     { sender: "bot", text: "What brings you here today?" },
   ]);
@@ -215,4 +215,4 @@ const ChatBot = () => {
   );
 };
 
-export default ChatBot;
+export default UserChatBot;

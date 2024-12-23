@@ -1,0 +1,77 @@
+/* OserDemoLanding.module.css */
+
+.oserDemoLanding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f0f0;
+    /* Adjust background color as needed */
+}
+
+.oserDemoLandingContainer {
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   justify-content: space-evenly;
+   height: 80%;
+}
+.oserDemoLandingContainer img {
+    max-width: 400px;
+    height: auto;
+    padding-bottom: 30px;
+}
+.oserDemoLandingContent {
+    display: flex;
+    flex-direction: row;
+    /* width: 80%; */
+    /* height: 80%; */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.oserDemoLandingLeft,
+.oserDemoLandingRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.oserDemoLandingLeft:hover,
+.oserDemoLandingRight:hover {
+    background-image: linear-gradient(to bottom right, #e0f3ff, #b6cefa);
+    transform: scale(1.05);
+    border-radius: 10px;
+}
+.oserDemoLandingLeft .oserDemoLandingLeftHeader,
+.oserDemoLandingRight .oserDemoLandingRightHeader {
+    margin-bottom: 1rem;
+    max-width: 300px;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 2.5px;
+    line-height: 1.5;
+}
+.oserDemoLandingLeft {
+    border-right: 0.5px solid #b6cefa3f;
+}
+
+.oserDemoLandingLeft .oserDemoLandingLeftDescription,
+.oserDemoLandingRight .oserDemoLandingRightDescription {
+  text-align: center;
+  max-width: 400px;
+  letter-spacing: 1.8px;
+  line-height: 2.2;
+}
+
+.oserDemoLandingLeftIcon,
+.oserDemoLandingRightIcon {
+    font-size: 50px;
+    margin-bottom: 1rem;
+}
