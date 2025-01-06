@@ -11,7 +11,7 @@ const OserDemoLanding = () => {
             <div className={styles.oserDemoLandingContainer}>
                 <img src={oser} alt="Oser.ai" className={styles.oserDemoLandingLogo} />
                 <div className={styles.oserDemoLandingContent}>
-                    <div className={styles.oserDemoLandingLeft} onClick={() => window.open("/electrify-ev-chatbot", "_blank")}>
+                    <div className={styles.oserDemoLandingLeft} onClick={() => window.open("/electrify-ev-chatbot", "_self")}>
                         <MdOutlineElectricalServices className={styles.oserDemoLandingLeftIcon} />
                         <div className={styles.oserDemoLandingLeftHeader}>
                             <h1>Electrify Your Fleet</h1>
@@ -22,7 +22,7 @@ const OserDemoLanding = () => {
                             </p>
                         </div>
                     </div>
-                    <div className={styles.oserDemoLandingRight} onClick={() => window.open("/user-ev-assist-chatbot", "_blank")}>
+                    <div className={styles.oserDemoLandingRight} onClick={() => window.open("/user-ev-assist-chatbot", "_self")}>
                         <TbMessageCircleUser className={styles.oserDemoLandingRightIcon} />
                         <div className={styles.oserDemoLandingRightHeader}>
                             <h1>Charge Smart with EV Assist</h1>

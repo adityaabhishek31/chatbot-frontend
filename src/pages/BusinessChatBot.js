@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FaPaperPlane } from "react-icons/fa";
 import { RiRobot2Line } from "react-icons/ri";
-import { TbRobotFace } from "react-icons/tb";
 import styles from "./BusinessChatBot.module.css";
+import { Typewriter } from 'react-simple-typewriter'
+
 
 const BusinessChatBot = () => {
   const [messages, setMessages] = useState([
@@ -152,64 +153,75 @@ const BusinessChatBot = () => {
   }, [messages, typing]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>oser.ai</div>
+    // remove later outerdiv
+    <div className={styles.pageContainer}>
+      <div className={styles.container}>
+        <div className={styles.header}>oser.ai</div>
 
-      <div className={styles.chatBox} ref={chatContainerRef}>
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={`${styles.message} ${msg.sender === "user" ? styles.userMessage : styles.botMessage
-              }`}
-          >
-            {msg.sender !== "user" && (
-              <TbRobotFace className={styles.botMessageIcon} />
-            )}
-            {msg.text}
-          </div>
-        ))}
-
-        {typing && (
-          <div className={`${styles.message} ${styles.botMessage}`}>
-            <RiRobot2Line className={styles.botMessageIcon} />
-            <div className={styles.typingAnimation}>
-              <span></span>
-              <span></span>
-              <span></span>
+        <div className={styles.chatBox} ref={chatContainerRef}>
+          {messages.map((msg, index) => (
+            <div
+              key={index}
+              className={`${styles.message} ${msg.sender === "user" ? styles.userMessage : styles.botMessage
+                }`}
+            >
+             {msg.sender !== "user" ? (
+                <Typewriter
+                  className={styles.botMessageIcon}
+                  words={[msg.text]}
+                  cursor = {false}
+                  cursorBlinking= {false}
+                  typeSpeed={25}
+                  deleteSpeed={20}
+                />
+              ) : (
+                msg.text
+              )}
             </div>
+          ))}
+
+          {typing && (
+            <div className={`${styles.message} ${styles.botMessage}`}>
+              <RiRobot2Line className={styles.botMessageIcon} />
+              <div className={styles.typingAnimation}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {options.length > 0 && (
+          <div className={styles.predefinedQuestions}>
+            {options.map((question, index) => (
+              <button
+                key={index}
+                className={styles.questionButton}
+                onClick={() => handleOptionClick(question)}
+              >
+                {question}
+              </button>
+            ))}
           </div>
         )}
-      </div>
 
-      {options.length > 0 && (
-        <div className={styles.predefinedQuestions}>
-          {options.map((question, index) => (
-            <button
-              key={index}
-              className={styles.questionButton}
-              onClick={() => handleOptionClick(question)}
-            >
-              {question}
-            </button>
-          ))}
+        <div className={styles.inputBox}>
+          <input
+            type="text"
+            placeholder="Type your message..."
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            className={styles.input}
+            onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+          />
+          <button
+            onClick={() => handleSendMessage()}
+            className={styles.sendButton}
+          >
+            <FaPaperPlane />
+          </button>
         </div>
-      )}
-
-      <div className={styles.inputBox}>
-        <input
-          type="text"
-          placeholder="Type your message..."
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-          className={styles.input}
-          onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-        />
-        <button
-          onClick={() => handleSendMessage()}
-          className={styles.sendButton}
-        >
-          <FaPaperPlane />
-        </button>
       </div>
     </div>
   );
